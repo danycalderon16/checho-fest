@@ -1,14 +1,4 @@
-function nextYearFromNow() {
-  const start = new Date();
-
-  start.setFullYear(start.getFullYear() + 1);
-
-  return start.getFullYear();
-}
-
-export const nextYear = nextYearFromNow();
-
-const endTime = new Date(nextYear, 0, 1, 0, 0).getTime();
+const endTime = new Date(2023, 5, 10, 0, 0).getTime();
 
 export function timeLeft() {
   const now = new Date();

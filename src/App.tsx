@@ -2,7 +2,8 @@ import { useInterval } from "usehooks-ts";
 import confetti from "canvas-confetti";
 import { useState } from "react";
 
-import { timeLeft, nextYear } from "./utils";
+import { timeLeft } from "./utils";
+import { Comida } from "./Comida";
 
 function App() {
   const [time, setTimer] = useState(timeLeft());
@@ -12,11 +13,12 @@ function App() {
   }, 1000);
 
   return (
-    <div className="h-screen flex flex-col" onClick={() => confetti()}>
+    <div className="flex flex-col" onClick={() => confetti()}>
       <div className="text-center object-fill flex-1">
-        <h1 className="bg-yellow-400 text-7xl p-5">🎉⁉</h1>
+        <h1 className="bg-cyan-700 text-7xl p-5 text-white">Agarrense porque faltan: </h1>
+      
 
-        <section className="grid grid-rows-2 grid-flow-col gap-3 p-6">
+        <section className="flex justify-center gap-2 p-6">
           <TimeBox unitName="Days" unit={time.days} />
           <TimeBox unitName="Minutes" unit={time.minutes} />
           <TimeBox unitName="Hours" unit={time.hours} />
@@ -24,18 +26,19 @@ function App() {
         </section>
 
         <p className="text-3xl">
-          Left for <span className="text-red-900">{nextYear}</span>.
+          para el cumple de <span className="text-red-900">Checho</span>.
         </p>
       </div>
 
-      <p className="text-2xl p-4 bg-yellow-200">Eliaz Bobadilla</p>
+      <Comida/>
+
     </div>
   );
 }
 
 const TimeBox = (props: { unitName: string; unit: number }) => {
   return (
-    <div className="bg-yellow-300 rounded p-3 md:p-10">
+    <div className="bg-cyan-800 rounded-lg p-3 md:p-10">
       <h2 className="text-5xl">{props.unit}</h2>
       <p>{props.unitName}</p>
     </div>
